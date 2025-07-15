@@ -51,10 +51,10 @@
 
 	<!-- Head Libs -->
 	<script src="vendor/modernizr/modernizr.min.js"></script>
-
 </head>
 
 <body class="loading-overlay-showing" data-loading-overlay data-plugin-page-transition>
+
 	<div class="loading-overlay">
 		<div class="bounce-loader">
 			<div class="bounce1"></div>
@@ -558,50 +558,126 @@
 						</div>
 					</div>
 				</section>
-
 				<div class="container container-xl-custom py-4 my-3">
 					<div class="lightbox"
-						data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}, 'mainClass': 'mfp-with-zoom', 'zoom': {'enabled': true, 'duration': 300}}">
+						data-plugin-options="{'delegate': 'a', 'type': 'inline', 'gallery': {'enabled': true}, 'mainClass': 'mfp-fade'}">
 						<div class="masonry-loader masonry-loader-showing">
 							<div class="masonry row" data-plugin-masonry
 								data-plugin-options="{'layoutMode': 'packery', 'itemSelector': '.masonry-item', 'sortBy': 'original-order'}">
+				
+								<!-- Cimento Queimado -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
-										href="img/demos/architecture-2/generic/textura1.jpg"
+										href="#textura-cimento" title="Cimento Queimado"
 										data-appear-animation="maskRight" data-appear-animation-delay="250">
 										<img src="img/demos/architecture-2/generic/textura1.jpg"
-											class="img-fluid rounded-0" alt="Exemplo de textura aplicada" />
+											class="img-fluid rounded-0" alt="Exemplo de textura Cimento Queimado" />
 									</a>
 								</div>
+				
+								<!-- Marmoratto -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
-										href="img/demos/architecture-2/generic/textura2.jpg"
+										href="#textura-marmoratto" title="Marmoratto"
 										data-appear-animation="maskRight" data-appear-animation-delay="250">
 										<img src="img/demos/architecture-2/generic/textura2.jpg"
-											class="img-fluid rounded-0" alt="Exemplo de textura aplicada" />
+											class="img-fluid rounded-0" alt="Exemplo de textura Marmoratto" />
 									</a>
 								</div>
+				
+								<!-- Textura Rústica -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
-										href="img/demos/architecture-2/generic/textura3.jpg"
+										href="#textura-rustica" title="Textura Rústica"
 										data-appear-animation="maskRight" data-appear-animation-delay="250">
 										<img src="img/demos/architecture-2/generic/textura3.jpg"
-											class="img-fluid rounded-0" alt="Exemplo de textura aplicada" />
+											class="img-fluid rounded-0" alt="Exemplo de textura Rústica" />
 									</a>
 								</div>
+				
+								<!-- Grafiato -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
-										href="img/demos/architecture-2/generic/textura5.jpg"
+										href="#textura-grafiato" title="Grafiato"
 										data-appear-animation="maskRight" data-appear-animation-delay="250">
 										<img src="img/demos/architecture-2/generic/textura5.jpg"
-											class="img-fluid rounded-0" alt="Exemplo de textura aplicada" />
+											class="img-fluid rounded-0" alt="Exemplo de textura Grafiato" />
 									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				
+<!-- Cimento Queimado -->
+<div id="textura-cimento" class="mfp-hide">
+	<div class="row">
+		<div class="col-md-6">
+			<img src="img/demos/architecture-2/generic/textura1.jpg" class="img-fluid detalhe-img" alt="Textura Cimento Queimado">
+		</div>
+		<div class="col-md-6 modal-textura-content">
+			<h2>Cimento Queimado</h2>
+			<p>
+				O cimento queimado é sinônimo de elegância urbana. Seu acabamento acetinado com aparência levemente manchada cria ambientes modernos,
+				sóbrio e industriais, combinando perfeitamente com elementos em madeira, vidro e aço. Ele é altamente resistente e versátil, podendo ser
+				aplicado em pisos, paredes internas e externas, além de bancadas e móveis planejados. É ideal para quem busca personalidade e sofisticação
+				com um toque minimalista e contemporâneo.
+			</p>
+		</div>
+	</div>
+</div>
 
+<!-- Marmoratto -->
+<div id="textura-marmoratto" class="mfp-hide">
+	<div class="row">
+		<div class="col-md-6">
+			<img src="img/demos/architecture-2/generic/textura2.jpg" class="img-fluid detalhe-img" alt="Textura Marmoratto">
+		</div>
+		<div class="col-md-6 modal-textura-content">
+			<h2>Marmoratto</h2>
+			<p>
+				Essa textura luxuosa traz a elegância do mármore para dentro de casa, sem o alto custo da pedra natural. O Marmoratto oferece brilho e profundidade,
+				com um acabamento sofisticado que valoriza qualquer ambiente. Ideal para salas, corredores, recepções e até quartos, ele proporciona um visual nobre,
+				limpo e extremamente refinado. Sua aplicação artística garante exclusividade em cada parede, tornando seu espaço único.
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- Textura Rústica -->
+<div id="textura-rustica" class="mfp-hide">
+	<div class="row">
+		<div class="col-md-6">
+			<img src="img/demos/architecture-2/generic/textura3.jpg" class="img-fluid detalhe-img" alt="Textura Rústica">
+		</div>
+		<div class="col-md-6 modal-textura-content">
+			<h2>Textura Rústica</h2>
+			<p>
+				Com um visual que remete à natureza e ao campo, a textura rústica transmite conforto e naturalidade. Seu acabamento robusto e marcante valoriza
+				ambientes internos e externos, sendo ideal para fachadas, muros, varandas e espaços gourmet. Ela combina muito bem com elementos em madeira, pedras
+				e tons terrosos, criando ambientes acolhedores e com forte personalidade. É perfeita para quem deseja uma estética autêntica e duradoura.
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- Grafiato -->
+<div id="textura-grafiato" class="mfp-hide">
+	<div class="row">
+		<div class="col-md-6">
+			<img src="img/demos/architecture-2/generic/textura5.jpg" class="img-fluid detalhe-img" alt="Textura Grafiato">
+		</div>
+		<div class="col-md-6 modal-textura-content">
+			<h2>Grafiato</h2>
+			<p>
+				O Grafiato é uma textura clássica e funcional, muito usada em fachadas e áreas externas por sua resistência à chuva e ao sol. Seu aspecto riscado
+				permite disfarçar imperfeições da parede e garante um acabamento limpo e uniforme. É ideal para quem busca durabilidade, beleza e fácil manutenção.
+				Disponível em uma ampla paleta de cores, ele pode ser adaptado a diferentes estilos arquitetônicos, do tradicional ao contemporâneo.
+			</p>
+		</div>
+	</div>
+</div>
+			
 
 				<section class="section parallax bg-transparent border-0 py-0 m-0" data-plugin-parallax
 					data-plugin-options="{'speed': 1.5, 'scrollableParallax': true, 'scrollableParallaxMinWidth': 991, 'startOffset': 13, 'cssProperty': 'width', 'cssValueStart': 40, 'cssValueEnd': 100, 'cssValueUnit': 'vw'}">

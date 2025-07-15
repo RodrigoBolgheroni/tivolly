@@ -1,3 +1,26 @@
 .masonry-item img {
     height: 442px;
 }
+.detalhe-img{
+	width: 900px;
+	height: 700px;
+}
+.modal-textura-content {
+	color: #ffffff;
+	overflow-y: auto;
+	padding-right: 15px;
+	max-width: 910px;
+}
+
+.modal-textura-content h2 {
+	font-size: 1.8rem;
+	margin-bottom: 15px;
+	color: #f8f8f8;
+	font-weight: 600;
+	margin-top: 250px;
+}
+
+.modal-textura-content p {
+	font-size: 1rem;
+	line-height: 1.6;
+}
