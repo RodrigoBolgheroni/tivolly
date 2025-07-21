@@ -64,108 +64,32 @@
 	</div>
 
 	<div class="body">
-		<header id="header" class="header-transparent header-effect-shrink"
-			data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyHeaderContainerHeight': 80, 'stickyStartAt': 50, 'stickyChangeLogo': false}">
-			<div class="header-body border-top-0 bg-primary appear-animation"
-				data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="2000"
-				data-plugin-options="{'forceAnimation': true}">
-				<div class="header-container container-fluid">
-					<div class="header-row">
-						<div class="header-column align-items-start justify-content-center">
-							<div class="header-logo z-index-2 col-lg-2 px-0">
-								<a href="index.html">
-									<img alt="Tivolly" style="margin-top: 10px;" src="img/logos/logo-tivolly.webp">
-								</a>
-							</div>
-						</div>
-						<div class="header-column flex-row justify-content-end justify-content-lg-center">
-							<div
-								class="header-nav header-nav-line header-nav-bottom-line header-nav-bottom-line-effect-1 header-nav-dropdowns-dark header-nav-light-text justify-content-end">
-								<div
-									class="header-nav-main header-nav-main-arrows header-nav-main-mobile-dark header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1">
-									<nav class="collapse">
-										<ul class="nav nav-pills" id="mainNav">
-											<li><a href="index.html" class="nav-link active">Home</a></li>
-											<li><a href="tivolly-sobre.html" class="nav-link">Sobre Nós</a></li>
-											<li><a href="tivolly-projetos.html" class="nav-link">Projetos</a></li>
-											<li class="dropdown">
-												<a href="tivolly-servicos.html"
-													class="nav-link dropdown-toggle">Serviços</a>
-												<ul class="dropdown-menu">
-													<li><a href="tivolly-servicos.html" class="dropdown-item">Ver
-															Todos</a></li>
-													<li><a href="tivolly-servico-consultoriadetextura.html"
-															class="dropdown-item">Consultoria de Textura</a></li>
-													<li><a href="tivolly-servico-texturasinternas.html"
-															class="dropdown-item">Texturas Internas</a></li>
-													<li><a href="tivolly-servico-texturasexternas.html"
-															class="dropdown-item">Texturas Externas</a></li>
-													<li><a href="tivolly-servico-aplicacoes.html"
-															class="dropdown-item">Aplicação Especializada</a></li>
-												</ul>
-											</li>
-											<li><a href="tivolly-contato.html" class="nav-link">Contato</a></li>
-										</ul>
-									</nav>
-								</div>
-							</div>
-							<div class="header-nav-features ps-0 ms-3">
-								<div class="header-nav-features-search-reveal-container">
-									<div
-										class="header-nav-feature header-nav-features-search header-nav-features-search-reveal d-inline-flex">
-										<a href="#"
-											class="header-nav-features-search-show-icon d-inline-flex text-decoration-none"><i
-												class="icons icon-magnifier header-nav-top-icon text-color-light text-4 font-weight-bold position-relative top-1"></i></a>
-									</div>
-								</div>
-							</div>
-							<button
-								class="btn header-btn-collapse-nav bg-transparent border-0 text-4 position-relative top-2 p-0 ms-4"
-								data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
-								<i class="fas fa-bars"></i>
-							</button>
-						</div>
-						<div class="header-column align-items-end justify-content-center d-none d-lg-flex">
-							<ul
-								class="header-social-icons social-icons social-icons-clean social-icons-icon-light social-icons-medium custom-social-icons-divider">
-								<li class="social-icons-facebook">
-									<a href="http://www.facebook.com/" target="_blank" title="Facebook"><i
-											class="fab fa-facebook-f"></i></a>
-								</li>
-								<li class="social-icons-twitter">
-									<a href="http://www.twitter.com/" target="_blank" title="Twitter"><i
-											class="fab fa-twitter"></i></a>
-								</li>
-								<li class="social-icons-linkedin">
-									<a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i
-											class="fab fa-linkedin-in"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="header-nav-features header-nav-features-no-border p-static">
-				<div
-					class="header-nav-feature header-nav-features-search header-nav-features-search-reveal header-nav-features-search-reveal-big-search header-nav-features-search-reveal-big-search-full">
-					<div class="container">
-						<div class="row h-100 d-flex">
-							<div class="col h-100 d-flex">
-								<form role="search" class="d-flex h-100 w-100" action="page-search-results.html"
-									method="get">
-									<div class="big-search-header input-group">
-										<input class="form-control text-1" id="headerSearch" name="q" type="search"
-											value="" placeholder="Type and hit enter...">
-										<a href="#" class="header-nav-features-search-hide-icon"><i
-												class="fas fa-times header-nav-top-icon"></i></a>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		<div id="header-placeholder">
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+				  fetch("header.html")
+					.then(response => response.text())
+					.then(data => {
+					  document.getElementById("header-placeholder").innerHTML = data;
+					  // Reexecuta animações ou plugins se necessário
+					  if (typeof $.fn.appear === "function") {
+						$('[data-appear-animation]').appear(function () {
+						  const $el = $(this);
+						  if (!$el.hasClass('appear-animation-visible')) {
+							const delay = $el.data('appear-animation-delay') || 0;
+							setTimeout(() => {
+							  $el.addClass('appear-animation-visible');
+							}, delay);
+						  }
+						}, { accX: 0, accY: -50 });
+					  }
+					})
+					.catch(error => console.error("Erro ao carregar o header:", error));
+				});
+			  </script>
+			  
+		</div>
+
 
 		<div role="main" class="main">
 
@@ -311,8 +235,7 @@
 												</a>
 											</div>
 											<div>
-												<a href="tivolly-servico-texturasinternas.html"
-													class="text-decoration-none">
+												<a href="tivolly-servico-texturas.html" class="text-decoration-none">
 													<div class="card custom-card-style-1 border-radius-0">
 														<div class="card-body text-center p-5 mb-4">
 															<img width="75" height="75"
@@ -347,8 +270,7 @@
 												</a>
 											</div>
 											<div>
-												<a href="tivolly-servico-aplicacoes.html"
-													class="text-decoration-none">
+												<a href="tivolly-servico-aplicacoes.html" class="text-decoration-none">
 													<div class="card custom-card-style-1 border-radius-0">
 														<div class="card-body text-center p-5 mb-4">
 															<img width="75" height="75"
@@ -564,37 +486,37 @@
 						<div class="masonry-loader masonry-loader-showing">
 							<div class="masonry row" data-plugin-masonry
 								data-plugin-options="{'layoutMode': 'packery', 'itemSelector': '.masonry-item', 'sortBy': 'original-order'}">
-						
+
 								<!-- Textura Grossa -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
-										href="#textura-grossa" title="Textura Grossa"
-										data-appear-animation="maskRight" data-appear-animation-delay="250">
+										href="#textura-grossa" title="Textura Grossa" data-appear-animation="maskRight"
+										data-appear-animation-delay="250">
 										<img src="img/demos/architecture-2/generic/textura1.jpg"
 											class="img-fluid rounded-0" alt="Exemplo de textura Grossa" />
 									</a>
 								</div>
-						
+
 								<!-- Textura Fina -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
-										href="#textura-fina" title="Textura Fina"
-										data-appear-animation="maskRight" data-appear-animation-delay="250">
+										href="#textura-fina" title="Textura Fina" data-appear-animation="maskRight"
+										data-appear-animation-delay="250">
 										<img src="img/demos/architecture-2/generic/textura2.jpg"
 											class="img-fluid rounded-0" alt="Exemplo de textura Fina" />
 									</a>
 								</div>
-						
+
 								<!-- Grafiato -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
-										href="#textura-grafiato" title="Grafiato"
-										data-appear-animation="maskRight" data-appear-animation-delay="250">
+										href="#textura-grafiato" title="Grafiato" data-appear-animation="maskRight"
+										data-appear-animation-delay="250">
 										<img src="img/demos/architecture-2/generic/textura3.jpg"
 											class="img-fluid rounded-0" alt="Exemplo de textura Grafiato" />
 									</a>
 								</div>
-						
+
 								<!-- Cimento Queimado -->
 								<div class="masonry-item no-default-style col-6 col-lg-3 overflow-hidden px-0">
 									<a class="d-inline-block custom-img-thumbnail-style-1 img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon rounded-0 appear-animation"
@@ -606,78 +528,93 @@
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
-				
-<!-- Textura Grossa -->
-<div id="textura-grossa" class="mfp-hide">
-	<div class="row">
-		<div class="col-md-6">
-			<img src="img/demos/architecture-2/generic/textura1.jpg" class="img-fluid detalhe-img" alt="Textura Grossa">
-		</div>
-		<div class="col-md-6 modal-textura-content">
-			<h2>Textura Grossa</h2>
-			<p>
-				A textura grossa é ideal para quem busca um acabamento marcante e com presença. Seu relevo acentuado garante um visual robusto e resistente,
-				sendo muito aplicada em áreas externas como fachadas, muros e varandas. Além de seu apelo estético, ela ajuda a disfarçar imperfeições da parede
-				e proporciona maior durabilidade contra intempéries. Uma excelente opção para destacar ambientes com personalidade.
-			</p>
-		</div>
-	</div>
-</div>
 
-<!-- Textura Fina -->
-<div id="textura-fina" class="mfp-hide">
-	<div class="row">
-		<div class="col-md-6">
-			<img src="img/demos/architecture-2/generic/textura2.jpg" class="img-fluid detalhe-img" alt="Textura Fina">
-		</div>
-		<div class="col-md-6 modal-textura-content">
-			<h2>Textura Fina</h2>
-			<p>
-				Com um acabamento mais delicado e uniforme, a textura fina oferece um toque de sofisticação discreta. É muito usada em ambientes internos e externos
-				que buscam elegância sem excessos. Sua aplicação proporciona um efeito mais liso, ideal para quem deseja um visual limpo, moderno e fácil de combinar
-				com outros elementos decorativos. Também ajuda na proteção das paredes e na resistência à umidade.
-			</p>
-		</div>
-	</div>
-</div>
+				<!-- Textura Grossa -->
+				<div id="textura-grossa" class="mfp-hide">
+					<div class="row">
+						<div class="col-md-6">
+							<img src="img/demos/architecture-2/generic/textura1.jpg" class="img-fluid detalhe-img"
+								alt="Textura Grossa">
+						</div>
+						<div class="col-md-6 modal-textura-content">
+							<h2>Textura Grossa</h2>
+							<p>
+								A textura grossa é ideal para quem busca um acabamento marcante e com presença. Seu
+								relevo acentuado garante um visual robusto e resistente,
+								sendo muito aplicada em áreas externas como fachadas, muros e varandas. Além de seu
+								apelo estético, ela ajuda a disfarçar imperfeições da parede
+								e proporciona maior durabilidade contra intempéries. Uma excelente opção para destacar
+								ambientes com personalidade.
+							</p>
+						</div>
+					</div>
+				</div>
 
-<!-- Grafiato -->
-<div id="textura-grafiato" class="mfp-hide">
-	<div class="row">
-		<div class="col-md-6">
-			<img src="img/demos/architecture-2/generic/textura3.jpg" class="img-fluid detalhe-img" alt="Textura Grafiato">
-		</div>
-		<div class="col-md-6 modal-textura-content">
-			<h2>Grafiato</h2>
-			<p>
-				O Grafiato é uma textura clássica e funcional, muito usada em fachadas e áreas externas por sua resistência à chuva e ao sol. Seu aspecto riscado
-				permite disfarçar imperfeições da parede e garante um acabamento limpo e uniforme. É ideal para quem busca durabilidade, beleza e fácil manutenção.
-				Disponível em uma ampla paleta de cores, ele pode ser adaptado a diferentes estilos arquitetônicos, do tradicional ao contemporâneo.
-			</p>
-		</div>
-	</div>
-</div>
+				<!-- Textura Fina -->
+				<div id="textura-fina" class="mfp-hide">
+					<div class="row">
+						<div class="col-md-6">
+							<img src="img/demos/architecture-2/generic/textura2.jpg" class="img-fluid detalhe-img"
+								alt="Textura Fina">
+						</div>
+						<div class="col-md-6 modal-textura-content">
+							<h2>Textura Fina</h2>
+							<p>
+								Com um acabamento mais delicado e uniforme, a textura fina oferece um toque de
+								sofisticação discreta. É muito usada em ambientes internos e externos
+								que buscam elegância sem excessos. Sua aplicação proporciona um efeito mais liso, ideal
+								para quem deseja um visual limpo, moderno e fácil de combinar
+								com outros elementos decorativos. Também ajuda na proteção das paredes e na resistência
+								à umidade.
+							</p>
+						</div>
+					</div>
+				</div>
 
-<!-- Cimento Queimado -->
-<div id="textura-cimento" class="mfp-hide">
-	<div class="row">
-		<div class="col-md-6">
-			<img src="img/demos/architecture-2/generic/textura5.jpg" class="img-fluid detalhe-img" alt="Textura Cimento Queimado">
-		</div>
-		<div class="col-md-6 modal-textura-content">
-			<h2>Cimento Queimado</h2>
-			<p>
-				O cimento queimado é sinônimo de elegância urbana. Seu acabamento acetinado com aparência levemente manchada cria ambientes modernos,
-				sóbrios e industriais, combinando perfeitamente com elementos em madeira, vidro e aço. Ele é altamente resistente e versátil, podendo ser
-				aplicado em pisos, paredes internas e externas, além de bancadas e móveis planejados. É ideal para quem busca personalidade e sofisticação
-				com um toque minimalista e contemporâneo.
-			</p>
-		</div>
-	</div>
-</div>
+				<!-- Grafiato -->
+				<div id="textura-grafiato" class="mfp-hide">
+					<div class="row">
+						<div class="col-md-6">
+							<img src="img/demos/architecture-2/generic/textura3.jpg" class="img-fluid detalhe-img"
+								alt="Textura Grafiato">
+						</div>
+						<div class="col-md-6 modal-textura-content">
+							<h2>Grafiato</h2>
+							<p>
+								O Grafiato é uma textura clássica e funcional, muito usada em fachadas e áreas externas
+								por sua resistência à chuva e ao sol. Seu aspecto riscado
+								permite disfarçar imperfeições da parede e garante um acabamento limpo e uniforme. É
+								ideal para quem busca durabilidade, beleza e fácil manutenção.
+								Disponível em uma ampla paleta de cores, ele pode ser adaptado a diferentes estilos
+								arquitetônicos, do tradicional ao contemporâneo.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Cimento Queimado -->
+				<div id="textura-cimento" class="mfp-hide">
+					<div class="row">
+						<div class="col-md-6">
+							<img src="img/demos/architecture-2/generic/textura5.jpg" class="img-fluid detalhe-img"
+								alt="Textura Cimento Queimado">
+						</div>
+						<div class="col-md-6 modal-textura-content">
+							<h2>Cimento Queimado</h2>
+							<p>
+								O cimento queimado é sinônimo de elegância urbana. Seu acabamento acetinado com
+								aparência levemente manchada cria ambientes modernos,
+								sóbrios e industriais, combinando perfeitamente com elementos em madeira, vidro e aço.
+								Ele é altamente resistente e versátil, podendo ser
+								aplicado em externas. É ideal para quem busca personalidade e sofisticação
+								com um toque minimalista e contemporâneo.
+							</p>
+						</div>
+					</div>
+				</div>
 
 				<section class="section parallax bg-transparent border-0 py-0 m-0" data-plugin-parallax
 					data-plugin-options="{'speed': 1.5, 'scrollableParallax': true, 'scrollableParallaxMinWidth': 991, 'startOffset': 13, 'cssProperty': 'width', 'cssValueStart': 40, 'cssValueEnd': 100, 'cssValueUnit': 'vw'}">
@@ -749,110 +686,9 @@
 
 		</div>
 
-		<footer id="footer" class="bg-primary border-0">
-			<div class="container container-xl-custom pt-5 pb-3">
-				<div class="row py-5">
-					<div class="col-md-4 col-lg-2 mb-4 mb-lg-0">
-						<h4 class="font-weight-extra-bold text-5 ls-0">Endereço</h4>
-						<ul class="list list-unstyled">
-							<li class="mb-1">
-								Av. Cel. Sezefredo Fagundes 
-							</li>
-							<li class="mb-1">
-								3400 - Tucuruvi
-							</li>
-							<li>
-								São Paulo - SP, 02306-004
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 col-lg-2 mb-4 mb-lg-0">
-						<h4 class="font-weight-extra-bold text-5 ls-0">Contatos</h4>
-						<ul class="list-unstyled">
-							<li>
-								<span class="d-block line-height-2 mb-1">ATENDIMENTO</span>
-								<a href="tel:+5511999999999"
-									class="text-color-light text-6 text-lg-4 text-xl-6 font-weight-bold">(11) 94783-6185</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 col-lg-2 mb-4 mb-lg-0">
-						<h4 class="font-weight-extra-bold text-5 ls-0">Links Úteis</h4>
-						<ul class="list-unstyled">
-							<li class="mb-1">
-								<a href="tivolly-servicos.html">Nossos Serviços</a>
-							</li>
-							<li class="mb-1">
-								<a href="#">Formas de Pagamento</a>
-							</li>
-							<li class="mb-1">
-								<a href="#">Guia de Texturas</a>
-							</li>
-							<li>
-								<a href="#">Perguntas Frequentes</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 col-lg-2 mb-4 mb-md-0">
-						<h4 class="font-weight-extra-bold text-5 ls-0">Serviços</h4>
-						<ul class="list-unstyled">
-							<li class="mb-1">
-								<a href="tivolly-servico-detalhe.html">Consultoria de Textura</a>
-							</li>
-							<li class="mb-1">
-								<a href="tivolly-servico-detalhe.html">Texturas Internas</a>
-							</li>
-							<li class="mb-1">
-								<a href="tivolly-servico-detalhe.html">Texturas Externas</a>
-							</li>
-							<li>
-								<a href="tivolly-servico-detalhe.html">Aplicação Especializada</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 col-lg-2 mb-4 mb-md-0">
-						<h4 class="font-weight-extra-bold text-5 ls-0">About</h4>
-						<ul class="list-unstyled">
-							<li class="mb-1">
-								<a href="tivolly-sobre.html">Sobre Nós</a>
-							</li>
-							<li>
-								<a href="tivolly-contato.html">Envie uma Mensagem</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 col-lg-2">
-						<h4 class="font-weight-extra-bold text-5 ls-0">Follow Us</h4>
-						<ul class="social-icons social-icons-clean social-icons-icon-light">
-							<li>
-								<a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-							</li>
-							<li>
-								<a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-							</li>
-							<li>
-								<a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="footer-copyright bg-primary">
-				<div class="container container-xl-custom pb-4">
-					<div class="row">
-						<div class="col opacity-3">
-							<hr class="my-0 bg-color-light opacity-1">
-						</div>
-					</div>
-					<div class="row py-5 my-3">
-						<div class="col text-center">
-							<p class="text-3 mb-0">Tivolly Texturas. © 2023. Todos os Direitos Reservados</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+		<div id="footer-placeholder">
 
+		</div>
 	</div>
 
 	<!-- Vendor -->
